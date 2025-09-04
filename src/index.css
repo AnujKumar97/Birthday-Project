@@ -1,0 +1,103 @@
+:root{
+  --bg1:#ffe3ee;
+  --bg2:#fff9f2;
+  --accent:#ff4d6d;
+  --purple:#6c5ce7;
+  --ink:#2d2a32;
+  --white:#ffffff;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(60% 60% at 20% 10%, #ffd6e2 0%, rgba(255,214,226,0) 60%),
+    radial-gradient(50% 60% at 80% 0%, #ffefc1 0%, rgba(255,239,193,0) 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+  overflow-x:hidden;
+}
+
+.app-root{position:relative; min-height:100%;}
+.center{min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px;}
+.title{
+  font-size: clamp(36px,8vw,72px);
+  font-weight:800;
+  margin:0 0 8px 0;
+  letter-spacing:1px;
+}
+.glow{text-shadow:0 2px 12px rgba(255,77,109,.35)}
+.tagline{opacity:.8; margin-bottom:28px;}
+
+.primary-btn{
+  background:linear-gradient(135deg,var(--accent),#ff7aa2);
+  color:white; border:none; padding:14px 28px; border-radius:999px;
+  font-weight:700; box-shadow:0 16px 40px rgba(255,77,109,.35);
+  cursor:pointer; font-size:16px;
+}
+
+.music-toggle{
+  position:fixed; top:16px; right:16px; z-index:50; cursor:pointer;
+  background:rgba(255,255,255,.7); border:1px solid rgba(0,0,0,.06);
+  border-radius:999px; padding:8px 12px; backdrop-filter: blur(8px);
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+}
+
+.gallery .polaroid{
+  width:min(92vw,520px);
+  aspect-ratio:3/4;
+  background:var(--white);
+  border-radius:18px;
+  padding:18px 18px 26px;
+  box-shadow:0 30px 80px rgba(0,0,0,.15);
+  position:relative;
+  transform: rotate(-0.6deg);
+}
+.gallery .photo{
+  width:100%; height:100%; object-fit:cover;
+  border-radius:12px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.04);
+  user-select:none;
+}
+.gallery .quote{
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(18px, 4.2vw, 28px);
+  color:#7b3f8c;
+  margin-top:12px;
+}
+.tape{
+  position:absolute; width:86px; height:26px; background: #ffe1a8aa;
+  top:-12px; transform: rotate(-8deg); border-radius:6px; filter: drop-shadow(0 4px 4px rgba(0,0,0,.08));
+}
+.t1{ left:18px;}
+.t2{ right:18px; transform: rotate(8deg);}
+
+.controls{ display:flex; gap:12px; margin-top:20px; align-items:center; flex-wrap:wrap; justify-content:center;}
+.controls .ghost{
+  background:transparent; border:2px solid var(--purple); color:var(--purple);
+  padding:8px 16px; border-radius:999px; cursor:pointer; font-weight:700;
+}
+.toggle{ display:flex; gap:8px; align-items:center; background:rgba(108,92,231,.08); padding:8px 12px; border-radius:999px; }
+
+/* Balloons */
+.balloons{ position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+.balloon{
+  position:absolute; bottom:-60px; font-size:42px; animation: floatUp 12s linear infinite;
+  filter: drop-shadow(0 8px 10px rgba(0,0,0,.12));
+}
+.balloon.b1{ transform: rotate(6deg); }
+.balloon.b2{ transform: rotate(-4deg); }
+.balloon.b3{ transform: rotate(8deg); }
+.balloon.b4{ transform: rotate(-6deg); }
+
+@keyframes floatUp{
+  0%{ transform: translateY(0) scale(1) }
+  100%{ transform: translateY(-120vh) scale(1.1) }
+}
+
+/* Particles canvas */
+.particles-canvas{
+  position:fixed; inset:0; width:100%; height:100%; z-index:-1; pointer-events:none;
+}
